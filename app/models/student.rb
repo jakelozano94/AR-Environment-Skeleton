@@ -1,15 +1,12 @@
 class Student < ActiveRecord::Base
-    belongs_to :teacher
-    def self.all_in_grade(grade)
-        Student.all.select{|student| student.grade_level == grade}
-    end
+    has_many :grade_levels
+    has_many :teachers, through: :grade_levels
 
     def full_name
         [self.first_name, self.last_name].join(" ")
     end
 
-    def teacher
-        Teacher.all.find{|teacher| teacher.grade_level = self.grade_level}
+    def grade_level
+        self.teachers[0].grade_level
     end
-
 end
