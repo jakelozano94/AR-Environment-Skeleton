@@ -6,7 +6,8 @@ class Student < ActiveRecord::Base
     student.first_name + " " + student.last_name
   end
   def self.all_in_grade(grade)
-    Student.select {|s| s.grade_level == grade}
+    #Student.where("grade = #{grade}")
+    Student.select {|s| s.grade == grade}
   end
 
 end
