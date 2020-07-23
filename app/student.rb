@@ -1,5 +1,6 @@
 class Student < ActiveRecord::Base
-  belongs_to :teacher
+  has_many :grade_levels
+  has_many :teachers, through: :grade_levels
   def full_name
     student = Student.find_by(first_name: self.first_name)
     student.first_name + " " + student.last_name
