@@ -20,3 +20,8 @@ Which method(s) did you have to create yourself? Why?  -->
 
 AR created all the methods that deal with putting those instance objects into the DB, ie a Student's first_name or Teacher's years_of_experiance. Since they deal with those when they're created I don't have to write specialized methods for them. Anything that deals with just find and returning the data can be done with a AR method. Thats why I had to write methods for year's of experiance, since it deals with evalutating a piece of data from the DB and passing it against a conditional I wrote. 
 In all honesty there may be methods do to what I did in #tenure, #full_name, and #all_in_grade but I don't know AR querying methods well enough yet to know what they are.
+
+
+#What changes did you make to your app? Why?
+
+I had to create a join class and therefore a join table as a Many to Many relationship. This then also changed the relationship methods used by AR in Student and Teacher, to then go through GradeLevel.
