@@ -1,4 +1,6 @@
 class Student < ActiveRecord::Base
+    has_many :student_rooms
+    has_many :rooms, through: :student_rooms
     has_many :grade_levels
     has_many :teachers, through: :grade_levels
     has_many :employments
